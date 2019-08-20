@@ -46,7 +46,7 @@ clean:
 	rm -rf $(OUTPUTDIR) release vendor
 
 $(OUTPUTDIR)/sdnbridge $(OUTPUTDIR)/sdnoverlay $(OUTPUTDIR)/nat : $(CNIFILES)
-	GOOS=windows GOARCH=amd64 go build -v -mod=vendor -o $(OUTPUTDIR)/$(subst $(OUTPUTDIR)/,,$@).exe -ldflags "-X main.version=$(VERSION) -s -w" $(CNI_NET_DIR)/$(subst $(OUTPUTDIR)/,,$@)/*.go
+	GOOS=windows GOARCH=amd64 go build -v -o $(OUTPUTDIR)/$(subst $(OUTPUTDIR)/,,$@).exe -ldflags "-X main.version=$(VERSION) -s -w" $(CNI_NET_DIR)/$(subst $(OUTPUTDIR)/,,$@)/*.go
 
 .PHONY: test
 test :
